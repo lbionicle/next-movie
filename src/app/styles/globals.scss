@@ -1,0 +1,117 @@
+@import "./fonts";
+@import "./scroll";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background-primary: #941c1c;
+  --linear-updown: linear-gradient(
+    180deg,
+    #000 -98.11%,
+    var(--background-primary) 100%
+  );
+  --linear-downup: linear-gradient(
+    180deg,
+    var(--background-primary) 0%,
+    #000 216.69%
+  );
+  --text-primary: white;
+  --text-secondary: rgba(255, 255, 255, 0.8);
+}
+
+body {
+  color: var(--text-primary);
+  background: var(--background-primary);
+  font-family: "Nunito Sans", sans-serif;
+}
+
+body > .slider > .swiper-pagination {
+  @apply static mx-auto mt-7;
+}
+
+body
+  > .slider
+  > .swiper-pagination-horizontal.swiper-pagination-bullets.swiper-pagination-bullets-dynamic {
+  @apply translate-x-0;
+}
+
+.slider > .swiper-pagination > .swiper-pagination-bullet {
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.slider > .swiper-pagination > .swiper-pagination-bullet-active-main {
+  background: rgba(255, 255, 255, 1);
+}
+
+.slider:hover {
+  .slider-arrow {
+    border-color: rgba(255, 255, 255, 0.8);
+    path {
+      fill-opacity: 0.8;
+    }
+  }
+}
+
+.container {
+  max-width: 1712px;
+}
+
+.linear-header {
+  background: var(--linear-updown);
+}
+
+.linear-footer {
+  background: var(--linear-downup);
+}
+
+.white-bottom-line::before {
+  @apply absolute bottom-0 left-1/2 h-[2px] w-[calc(100%+40px)] -translate-x-1/2 bg-white;
+  content: "";
+}
+
+.gray-bottom-line::before {
+  @apply absolute bottom-0 left-0 h-[2px] w-full bg-white/30;
+  content: "";
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translate(0, -10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
+
+details[open] {
+  animation: fadeIn 0.3s ease-in-out;
+  transition: 0.1s all;
+}
+
+details summary::-webkit-details-marker {
+  @apply hidden;
+}
+details > summary {
+  list-style: none;
+}
+
+details summary::before {
+  content: "";
+  @apply absolute right-3 top-[2px] h-5 w-5 -translate-x-1/2 rotate-[-135deg] transform rounded-[3px] border-4 border-b-0 border-r-0 border-solid border-white lg:h-6 lg:w-6;
+}
+
+details[open] summary:before {
+  content: "";
+  @apply top-[22px] -translate-y-1/2 rotate-45 transform transition-all duration-500;
+  transition: 0.1s all;
+}
