@@ -5,7 +5,6 @@ import { movies } from "@/app/lib/placeholder-data";
 import Breadcrumbs from "@/app/ui/common/breadcrumbs";
 import Footer from "@/app/ui/common/footer";
 import Header from "@/app/ui/common/header";
-import LinearGradient from "@/app/ui/common/linearHeader";
 import MovieInfo from "@/app/ui/movies/movie/movieInfo";
 import MovieContent from "@/app/ui/movies/movie/movieContent";
 import { notFound, useParams } from "next/navigation";

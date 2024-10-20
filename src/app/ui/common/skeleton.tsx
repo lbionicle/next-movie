@@ -1,6 +1,5 @@
 import { movieNav } from "@/app/lib/placeholder-data";
 import React from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
 import ArrowIcon from "../icons/arrowIcon";
 
 const shimmer =
@@ -280,7 +279,7 @@ export default function ReviewsSkeleton() {
           />
         </div>
       </div>
-      <section className="2xl: l:grid-cols-3 grid w-full grid-cols-1 gap-x-10 overflow-hidden lg:grid-cols-2">
+      <section className="2xl: grid w-full grid-cols-1 gap-x-10 overflow-hidden lg:grid-cols-2 l:grid-cols-3">
         {skeletons.map((_, index) => (
           <div
             className={`${visibilityClasses[index]} text-4 flex aspect-square !h-auto max-h-[544px] w-full flex-col rounded-[30px] border-2 border-white/30 bg-white/10 p-5`}

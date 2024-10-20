@@ -5,7 +5,6 @@ import FAQ from "./ui/main/faq";
 import Footer from "./ui/common/footer";
 import "./styles/globals.scss";
 import Header from "./ui/common/header";
-import LinearGradient from "./ui/common/linearHeader";
 
 export default function Home() {
   return (

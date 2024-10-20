@@ -1,12 +1,6 @@
 "use client";
 
-import React, {
-  ForwardedRef,
-  forwardRef,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import React, { forwardRef, useEffect, useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { A11y, Pagination } from "swiper/modules";
 import "swiper/css";
@@ -20,8 +14,7 @@ import { breakpoints, slides } from "@/app/lib/placeholder-data";
 import { SliderCardSkeleton } from "../common/skeleton";
 import HeartIcon from "../icons/heartIcon";
 import { Actor, Review } from "@/app/lib/definitions";
-import { height } from "@fortawesome/free-regular-svg-icons/faAddressBook";
-import { FormattedParagraph, FormattedText } from "../common/formattedText";
+import { FormattedParagraph } from "../common/formattedText";
 import StarRating from "../icons/starRating";
 import { transformRating } from "@/app/lib/utils";
 
@@ -191,7 +184,7 @@ interface ReviewSliderProps {
 }
 
 export const ReviewSlider = forwardRef<SwiperType, ReviewSliderProps>(
-  ({ reviews, onSwiper }, ref) => {
+  function ReviewSlider({ reviews, onSwiper }, ref) {
     return (
       <section className="slider-review block w-full overflow-hidden">
         <Swiper

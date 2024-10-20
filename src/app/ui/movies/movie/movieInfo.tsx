@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import { Movie, Tags } from "@/app/lib/definitions";
+import { Movie } from "@/app/lib/definitions";
 import HeartIcon from "../../icons/heartIcon";
 import {
   capitalizeFirstLetter,

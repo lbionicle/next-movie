@@ -2,7 +2,7 @@
 
 import { Picture } from "@/app/lib/definitions";
 import { movieNav } from "@/app/lib/placeholder-data";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import { getYouTubeVideoId } from "@/app/lib/utils";
 
