@@ -256,7 +256,7 @@ export function MovieContentSkeleton() {
 export default function ReviewsSkeleton() {
   const skeletons: number[] = Array.from({ length: 3 });
 
-  const visibilityClasses = ["block", "hidden lg:block", "hidden l:block"];
+  const visibilityClasses = ["block", "hidden md:block", "hidden l:block"];
 
   return (
     <section className="container my-[50px]">
@@ -279,10 +279,10 @@ export default function ReviewsSkeleton() {
           />
         </div>
       </div>
-      <section className="2xl: grid w-full grid-cols-1 gap-x-10 overflow-hidden lg:grid-cols-2 l:grid-cols-3">
+      <section className="2xl: grid w-full grid-cols-1 gap-x-10 overflow-hidden md:grid-cols-2 l:grid-cols-3">
         {skeletons.map((_, index) => (
           <div
-            className={`${visibilityClasses[index]} text-4 flex aspect-square !h-auto max-h-[544px] w-full flex-col rounded-[30px] border-2 border-white/30 bg-white/10 p-5`}
+            className={`${visibilityClasses[index]} text-4 flex aspect-square !h-auto max-h-[544px] w-full flex-col rounded-[30px] bg-white/10 p-5`}
             key={index}
           >
             <div className="mb-5 flex items-start justify-between">
@@ -292,7 +292,7 @@ export default function ReviewsSkeleton() {
               </div>
             </div>
             <div
-              className={`relative h-full w-full overflow-hidden rounded-[30px] bg-gray-300 ${shimmer}`}
+              className={`relative h-full w-full overflow-hidden rounded-lg bg-gray-300 ${shimmer}`}
             ></div>
           </div>
         ))}

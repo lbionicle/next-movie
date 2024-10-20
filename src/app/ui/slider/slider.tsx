@@ -17,6 +17,7 @@ import { Actor, Review } from "@/app/lib/definitions";
 import { FormattedParagraph } from "../common/formattedText";
 import StarRating from "../icons/starRating";
 import { transformRating } from "@/app/lib/utils";
+import { ReviewModal } from "../common/modal";
 
 export function FilmSlider() {
   const swiperRef = useRef<SwiperType | null>(null);
@@ -185,8 +186,18 @@ interface ReviewSliderProps {
 
 export const ReviewSlider = forwardRef<SwiperType, ReviewSliderProps>(
   function ReviewSlider({ reviews, onSwiper }, ref) {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const openModal = () => {
+      setIsModalOpen(true);
+    };
+
+    const closeModal = () => {
+      setIsModalOpen(false);
+    };
+
     return (
-      <section className="slider-review block w-full overflow-hidden">
+      <>
         <Swiper
           modules={[A11y, Pagination]}
           spaceBetween={40}
@@ -220,14 +231,14 @@ export const ReviewSlider = forwardRef<SwiperType, ReviewSliderProps>(
             >
               <div className="mb-5 flex items-center justify-between">
                 <h6>{reviewer}</h6>
-                <div className="flex items-center justify-center space-x-[10px]">
-                  <StarRating className="space-x-[5px]" rating={rating} />
+                <div className="flex items-center justify-center space-x-2.5">
+                  <StarRating className="space-x-1.25" rating={rating} />
                   <h6 className="mt-auto leading-none">
                     {transformRating(rating)}
                   </h6>
                 </div>
               </div>
-              <div className="space-y-[10px]">
+              <div className="space-y-2.5">
                 <FormattedParagraph className="text-white/80">
                   {comment}
                 </FormattedParagraph>
@@ -235,7 +246,15 @@ export const ReviewSlider = forwardRef<SwiperType, ReviewSliderProps>(
             </SwiperSlide>
           ))}
         </Swiper>
-      </section>
+        <button
+          className="text-4 mt-10 rounded-full bg-white px-10 py-[18px] font-semibold text-[#181818] transition-all duration-200 hover:bg-[#181818] hover:text-white lg:mt-[50px] lg:text-[18px]"
+          onClick={openModal}
+        >
+          Написать отзыв
+        </button>
+
+        <ReviewModal isOpen={isModalOpen} onClose={closeModal} />
+      </>
     );
   },
 );

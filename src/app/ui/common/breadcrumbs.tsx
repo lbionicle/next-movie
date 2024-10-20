@@ -6,7 +6,7 @@ interface BreadcrumbsProps {
 
 export default function Breadcrumbs({ name }: BreadcrumbsProps) {
   return (
-    <nav className="container py-[50px] text-[16px] font-semibold leading-normal text-white/80">
+    <nav className="container py-[50px] text-[14px] font-semibold leading-normal text-white/80 lg:text-[16px]">
       <Link
         className="transition-colors duration-200 hover:text-white"
         href={"/"}
