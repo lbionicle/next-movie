@@ -15,8 +15,8 @@ export const categories = [
   { title: "Фильмы", id: "#films" },
   { title: "Сериалы", id: "#series" },
   { title: "Мультфильмы", id: "#cartoons" },
-  { title: "Новое", id: "#new" },
   { title: "Популярное", id: "#popular" },
+  { title: "Новое", id: "#new" },
   { title: "Все", id: "#all" },
 ];
 
@@ -188,6 +188,21 @@ export const movies = [
         alt: "Джессика Чейстен",
       },
       {
+        name: "Джессика Чейстен",
+        url: "https://i.pinimg.com/736x/22/81/98/2281984ab271f140a48ff6324b8fdc43--film-video-celebrity-photography.jpg",
+        alt: "Джессика Чейстен",
+      },
+      {
+        name: "Джессика Чейстен1",
+        url: "https://i.pinimg.com/736x/22/81/98/2281984ab271f140a48ff6324b8fdc43--film-video-celebrity-photography.jpg",
+        alt: "Джессика Чейстен",
+      },
+      {
+        name: "Джессика Чейстен",
+        url: "https://i.pinimg.com/736x/22/81/98/2281984ab271f140a48ff6324b8fdc43--film-video-celebrity-photography.jpg",
+        alt: "Джессика Чейстен",
+      },
+      {
         name: "Андерс Даниелсен Лье",
         url: "https://i.pinimg.com/736x/22/81/98/2281984ab271f140a48ff6324b8fdc43--film-video-celebrity-photography.jpg",
         alt: "Джессика Чейстен",
@@ -239,8 +254,8 @@ export const movies = [
           alt: "picture4",
         },
       ],
-      trailer: "https://www.youtube.com/watch?v=5NqiYPezv7o",
-      video: "https://www.youtube.com/watch?v=5NqiYPezv7o",
+      trailer: "https://www.youtube.com/watch?v=L_ssR0ugIYA&t=2725s",
+      video: "https://www.youtube.com/watch?v=L_ssR0ugIYA&t=2725s",
     },
     reviews: [
       {

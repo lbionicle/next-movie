@@ -111,7 +111,6 @@ interface ActorSliderProps {
 export function ActorSlider({ actors }: ActorSliderProps) {
   const [isGrabbing, setIsGrabbing] = useState(false);
   const swiperRef = useRef<SwiperType | null>(null);
-  const [loading, setLoading] = useState<boolean>(true);
 
   const handleMouseDown = () => {
     setIsGrabbing(true);
@@ -121,81 +120,67 @@ export function ActorSlider({ actors }: ActorSliderProps) {
     setIsGrabbing(false);
   };
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 2000);
-
-    return () => {
-      clearTimeout(timer);
-    };
-  }, []);
-
   return (
     <section
       className={`slider-actor mt-[30px] block w-full flex-shrink-0 overflow-hidden ${
         isGrabbing ? "cursor-grabbing" : "cursor-grab"
       }`}
     >
-      {loading ? (
-        <div className="text-center">Downloading...</div>
-      ) : (
-        <Swiper
-          modules={[A11y, Pagination]}
-          spaceBetween={30}
-          slidesPerView={"auto"}
-          navigation={false}
-          onSwiper={(swiper) => {
-            swiperRef.current = swiper;
-          }}
-          a11y={{
-            enabled: true,
-          }}
-          breakpoints={{
-            0: {
-              spaceBetween: 20,
-              slidesPerView: 2,
-            },
-            576: {
-              slidesPerView: 3,
-            },
-            768: {
-              slidesPerView: 3,
-              spaceBetween: 25,
-            },
-            1024: {
-              spaceBetween: 30,
-            },
-            1280: {
-              slidesPerView: 4,
-              spaceBetween: 35,
-            },
-            1536: {
-              slidesPerView: 5,
-              spaceBetween: 40,
-            },
-          }}
-          onTouchStart={handleMouseDown}
-          onTouchEnd={handleMouseUp}
-          onMouseDown={handleMouseDown}
-          onMouseUp={handleMouseUp}
-        >
-          {actors.map(({ name, url, alt }, index) => (
-            <SwiperSlide className="flex flex-col" key={index}>
-              <Image
-                className="mx-auto aspect-square max-h-[170px] w-full max-w-[170px] rounded-full object-cover object-top md:max-h-[150px] md:max-w-[150px] xl:max-h-[160px] xl:max-w-[160px] 2xl:max-h-[170px] 2xl:max-w-[170px]"
-                src={url}
-                width={200}
-                height={200}
-                alt={alt}
-              />
-              <h6 className="mt-[15px] text-center leading-normal text-white/80">
-                {name}
-              </h6>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      )}
+      <Swiper
+        modules={[A11y, Pagination]}
+        spaceBetween={30}
+        slidesPerView={"auto"}
+        navigation={false}
+        onSwiper={(swiper) => {
+          swiperRef.current = swiper;
+        }}
+        a11y={{
+          enabled: true,
+        }}
+        breakpoints={{
+          0: {
+            spaceBetween: 20,
+            slidesPerView: 2,
+          },
+          576: {
+            slidesPerView: 3,
+          },
+          768: {
+            slidesPerView: 3,
+            spaceBetween: 25,
+          },
+          1024: {
+            spaceBetween: 30,
+          },
+          1280: {
+            slidesPerView: 4,
+            spaceBetween: 35,
+          },
+          1536: {
+            slidesPerView: 5,
+            spaceBetween: 40,
+          },
+        }}
+        onTouchStart={handleMouseDown}
+        onTouchEnd={handleMouseUp}
+        onMouseDown={handleMouseDown}
+        onMouseUp={handleMouseUp}
+      >
+        {actors.map(({ name, url, alt }, index) => (
+          <SwiperSlide className="flex flex-col" key={index}>
+            <Image
+              className="mx-auto aspect-square max-h-[170px] w-full max-w-[170px] rounded-full object-cover object-top md:max-h-[150px] md:max-w-[150px] xl:max-h-[160px] xl:max-w-[160px] 2xl:max-h-[170px] 2xl:max-w-[170px]"
+              src={url}
+              width={200}
+              height={200}
+              alt={alt}
+            />
+            <h6 className="mt-[15px] text-center leading-normal text-white/80">
+              {name}
+            </h6>
+          </SwiperSlide>
+        ))}
+      </Swiper>
     </section>
   );
 }
@@ -207,72 +192,56 @@ interface ReviewSliderProps {
 
 export const ReviewSlider = forwardRef<SwiperType, ReviewSliderProps>(
   ({ reviews, onSwiper }, ref) => {
-    const [loading, setLoading] = useState<boolean>(true);
-
-    useEffect(() => {
-      const timer = setTimeout(() => {
-        setLoading(false);
-      }, 2000);
-
-      return () => {
-        clearTimeout(timer);
-      };
-    }, []);
-
     return (
       <section className="slider-review block w-full overflow-hidden">
-        {loading ? (
-          <div className="text-center">Downloading...</div>
-        ) : (
-          <Swiper
-            modules={[A11y, Pagination]}
-            spaceBetween={40}
-            slidesPerView={1}
-            navigation={false}
-            onSwiper={(swiper) => {
-              if (onSwiper) {
-                onSwiper(swiper);
-              }
-              if (ref && typeof ref !== "function") {
-                (ref as React.MutableRefObject<SwiperType | null>).current =
-                  swiper;
-              }
-            }}
-            a11y={{
-              enabled: true,
-            }}
-            breakpoints={{
-              768: {
-                slidesPerView: 2,
-              },
-              1440: {
-                slidesPerView: 3,
-              },
-            }}
-          >
-            {reviews.map(({ reviewer, rating, comment }, index) => (
-              <SwiperSlide
-                className="text-4 flex !h-auto w-full flex-col rounded-[30px] border-2 border-white/30 bg-white/10 p-5 font-semibold lg:text-[18px]"
-                key={index}
-              >
-                <div className="mb-5 flex items-center justify-between">
-                  <h6>{reviewer}</h6>
-                  <div className="flex items-center justify-center space-x-[10px]">
-                    <StarRating className="space-x-[5px]" rating={rating} />
-                    <h6 className="mt-auto leading-none">
-                      {transformRating(rating)}
-                    </h6>
-                  </div>
+        <Swiper
+          modules={[A11y, Pagination]}
+          spaceBetween={40}
+          slidesPerView={1}
+          navigation={false}
+          onSwiper={(swiper) => {
+            if (onSwiper) {
+              onSwiper(swiper);
+            }
+            if (ref && typeof ref !== "function") {
+              (ref as React.MutableRefObject<SwiperType | null>).current =
+                swiper;
+            }
+          }}
+          a11y={{
+            enabled: true,
+          }}
+          breakpoints={{
+            768: {
+              slidesPerView: 2,
+            },
+            1440: {
+              slidesPerView: 3,
+            },
+          }}
+        >
+          {reviews.map(({ reviewer, rating, comment }, index) => (
+            <SwiperSlide
+              className="text-4 flex !h-auto w-full flex-col rounded-[30px] border-2 border-white/30 bg-white/10 p-5 font-semibold lg:text-[18px]"
+              key={index}
+            >
+              <div className="mb-5 flex items-center justify-between">
+                <h6>{reviewer}</h6>
+                <div className="flex items-center justify-center space-x-[10px]">
+                  <StarRating className="space-x-[5px]" rating={rating} />
+                  <h6 className="mt-auto leading-none">
+                    {transformRating(rating)}
+                  </h6>
                 </div>
-                <div className="space-y-[10px]">
-                  <FormattedParagraph className="text-white/80">
-                    {comment}
-                  </FormattedParagraph>
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        )}
+              </div>
+              <div className="space-y-[10px]">
+                <FormattedParagraph className="text-white/80">
+                  {comment}
+                </FormattedParagraph>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </section>
     );
   },

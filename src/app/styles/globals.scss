@@ -12,10 +12,13 @@
 :root {
   --background-primary: #941c1c;
   --linear-updown: linear-gradient(
-    180deg,
-    #000 -98.11%,
-    var(--background-primary) 100%
-  );
+      180deg,
+      rgba(36, 7, 7, 0.64) -39.23%,
+      #8d1b1bc9 27.01%,
+      #941c1ccc 73.66%,
+      rgba(0, 0, 0, 0.64) 147.37%
+    ),
+    var(--Color-Red, #941c1c);
   --linear-downup: linear-gradient(
     180deg,
     var(--background-primary) 0%,
@@ -27,7 +30,7 @@
 
 body {
   color: var(--text-primary);
-  background: var(--background-primary);
+  background: var(--linear-updown);
   font-family: "Nunito Sans";
   font-smooth: antialiased;
   -webkit-font-smoothing: antialiased;

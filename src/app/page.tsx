@@ -10,11 +10,9 @@ import LinearGradient from "./ui/common/linearHeader";
 export default function Home() {
   return (
     <>
-      <LinearGradient>
-        <Header />
-        <Promo />
-        <FilmSlider />
-      </LinearGradient>
+      <Header />
+      <Promo />
+      <FilmSlider />
       <Categories />
       <FAQ />
       <Footer />

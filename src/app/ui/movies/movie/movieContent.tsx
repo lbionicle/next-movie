@@ -81,6 +81,7 @@ export function FramesGrid({ frames }: FramesGridProps) {
     <div className="container my-10 grid grid-cols-[repeat(auto-fit,_minmax(290px,_1fr))] gap-4 lg:my-[50px]">
       {frames.map(({ url, alt }) => (
         <Image
+          key={`${url}-${alt}`}
           className="block w-full object-cover object-top"
           src={url}
           width={400}

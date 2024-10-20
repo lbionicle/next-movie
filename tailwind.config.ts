@@ -13,6 +13,7 @@ const config: Config = {
       },
       screens: {
         xs: "576px",
+        l: "1440px",
       },
       container: {
         center: true,

@@ -128,7 +128,7 @@ const Categories: React.FC = () => {
       <div className="mt-10 grid w-full grid-cols-1 gap-y-10 text-xl font-semibold lg:grid-cols-2 lg:gap-x-14 xl:grid-cols-3 xl:gap-x-20">
         {/* Жанры */}
         <div>
-          <h3 className="mb-4 text-left lg:text-left">Жанры</h3>
+          <h3 className="mb-4 text-left lg:text-left">Жанр</h3>
           <div className="grid grid-cols-2 gap-x-6 gap-y-3 sm:grid-cols-3 xl:grid-cols-2">
             {genres.map(({ title, param }) => (
               <button
@@ -144,7 +144,7 @@ const Categories: React.FC = () => {
 
         {/* Страны */}
         <div>
-          <h3 className="mb-4 text-left lg:text-left">Страны</h3>
+          <h3 className="mb-4 text-left lg:text-left">Страна</h3>
           <div className="grid grid-cols-2 gap-x-6 gap-y-3 sm:grid-cols-3 xl:grid-cols-2">
             {countries.map(({ name, param }) => (
               <button
@@ -160,7 +160,7 @@ const Categories: React.FC = () => {
 
         {/* Годы */}
         <div className="lg:col-start-1 lg:col-end-4 xl:col-start-3 xl:col-end-4">
-          <h3 className="mb-4 text-left lg:text-left">Годы</h3>
+          <h3 className="mb-4 text-left lg:text-left">Год</h3>
           <div className="custom-scrollbar mt-4 h-48 w-full overflow-y-auto overflow-x-hidden sm:h-60 md:h-72 lg:h-52 xl:h-64">
             <div className="grid grid-flow-col grid-cols-4 grid-rows-11 gap-x-5 gap-y-2">
               {Array.from({ length: 51 }, (_, i) => 2024 - i).map(

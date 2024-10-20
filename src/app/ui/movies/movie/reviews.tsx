@@ -19,7 +19,6 @@ export default function Reviews({ reviews }: { reviews: Review[] }) {
     setIsLoading(false);
   }, []);
 
-  console.log(1);
   useEffect(() => {
     if (swiperInstance) {
       const onSlideChange = () => {
