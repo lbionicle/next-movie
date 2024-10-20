@@ -37,7 +37,8 @@ const config: Config = {
         secondary: "var(--text-secondary)",
       },
       fontFamily: {
-        unbounded: ["Unbounded", "sans-serif"],
+        nunito: ['"Nunito Sans"', "sans-serif"],
+        unbounded: ['"Unbounded"', "sans-serif"],
       },
       borderColor: {
         primary: "rgba(255, 255, 255, 0.30)",
@@ -52,6 +53,13 @@ const config: Config = {
       fontWeight: {
         regular: "400",
         semibold: "600",
+      },
+      keyframes: {
+        shimmer: {
+          "100%": {
+            transform: "translateX(100%)",
+          },
+        },
       },
     },
   },

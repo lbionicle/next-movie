@@ -1,6 +1,6 @@
 "use client";
 
-import ChevronIcon from "../chevronIcon";
+import ChevronIcon from "../icons/chevronIcon";
 
 interface WithArrowProps {
   direction: "prev" | "next";

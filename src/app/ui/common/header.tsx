@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { mainIcons, nav } from "../lib/placeholder-data";
+import { mainIcons, nav } from "../../lib/placeholder-data";
 import Image from "next/image";
 import { useState } from "react";
 
@@ -16,7 +16,7 @@ export default function Header() {
     <>
       <header className="container flex max-w-[1712px] items-center justify-between pt-[20px] font-semibold md:pt-[30px] lg:pt-[40px] 2xl:pt-[50px]">
         <h1 className="max-w-[400px] font-unbounded text-[24px] md:text-[30px] 2xl:text-fz40">
-          <Link href={"#"}>Кинонавигатор</Link>
+          <Link href={"/"}>Кинонавигатор</Link>
         </h1>
         <nav className="hidden lg:block lg:text-[17px] 2xl:text-[18px]">
           <ul className="flex items-center space-x-10">

@@ -39,7 +39,7 @@ const Categories: React.FC = () => {
 
     const queryString = new URLSearchParams(query).toString();
 
-    router.push(`/search?${queryString}`);
+    router.push(`/movies/search?${queryString}`);
   };
 
   const handleCategorySelect = (id: string) => {
@@ -50,14 +50,14 @@ const Categories: React.FC = () => {
   return (
     <section className="container px-4 py-10 font-semibold md:px-6 lg:px-8 lg:py-24">
       {/* Блок Категорий */}
-      <div className="gray-bottom-line relative grid w-full grid-cols-1 gap-y-10 lg:grid-cols-3 lg:gap-x-20">
+      <div className="lg:gray-bottom-line relative grid w-full grid-cols-1 gap-y-10 lg:grid-cols-3 lg:gap-x-20">
         {/* Заголовок */}
         <h2 className="pb-2.5 text-left font-unbounded text-2xl lg:text-left lg:text-fz32">
           Категории
         </h2>
 
         {/* Dropdown для мобильных устройств */}
-        <div className="relative block lg:hidden">
+        <div className="relative block rounded lg:hidden">
           <button
             onClick={() => setIsDropdownOpen(!isDropdownOpen)}
             className="w-full rounded bg-red-900 px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-blue-400"
@@ -133,7 +133,7 @@ const Categories: React.FC = () => {
             {genres.map(({ title, param }) => (
               <button
                 onClick={() => handleNavigation("genre", param)}
-                className="text-center text-lg font-normal leading-normal text-white/80 transition-colors duration-200 hover:text-white lg:text-left"
+                className="text-left text-lg font-normal leading-normal text-white/80 transition-colors duration-200 hover:text-white lg:text-left"
                 key={title}
               >
                 {title}
@@ -149,7 +149,7 @@ const Categories: React.FC = () => {
             {countries.map(({ name, param }) => (
               <button
                 onClick={() => handleNavigation("country", param)}
-                className="text-center text-lg font-normal leading-normal text-white/80 transition-colors duration-200 hover:text-white lg:text-left"
+                className="text-left text-lg font-normal leading-normal text-white/80 transition-colors duration-200 hover:text-white lg:text-left"
                 key={param}
               >
                 {name}
@@ -161,13 +161,13 @@ const Categories: React.FC = () => {
         {/* Годы */}
         <div className="lg:col-start-1 lg:col-end-4 xl:col-start-3 xl:col-end-4">
           <h3 className="mb-4 text-left lg:text-left">Годы</h3>
-          <div className="custom-scrollbar mt-4 h-48 overflow-y-auto overflow-x-hidden sm:h-60 md:h-72 lg:h-40 xl:h-64">
-            <div className="grid grid-cols-3 gap-2 sm:grid-cols-4 md:grid-cols-6">
+          <div className="custom-scrollbar mt-4 h-48 w-full overflow-y-auto overflow-x-hidden sm:h-60 md:h-72 lg:h-52 xl:h-64">
+            <div className="grid grid-flow-col grid-cols-4 grid-rows-11 gap-x-5 gap-y-2">
               {Array.from({ length: 51 }, (_, i) => 2024 - i).map(
                 (number: number) => (
                   <button
                     onClick={() => handleNavigation("year", number)}
-                    className="text-center text-lg font-normal leading-normal text-white/80 transition-colors duration-200 hover:text-white lg:text-left"
+                    className="text-left text-lg font-normal leading-normal text-white/80 transition-colors duration-200 hover:text-white lg:text-left"
                     key={number}
                   >
                     {number}

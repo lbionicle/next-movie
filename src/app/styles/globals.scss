@@ -1,5 +1,9 @@
-@import "./fonts";
-@import "./scroll";
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,YTLC@6..12,540&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght,YTLC@6..12,600,540&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Unbounded&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Unbounded:wght@600&display=swap");
+
+@import "./scroll.scss";
 
 @tailwind base;
 @tailwind components;
@@ -24,7 +28,10 @@
 body {
   color: var(--text-primary);
   background: var(--background-primary);
-  font-family: "Nunito Sans", sans-serif;
+  font-family: "Nunito Sans";
+  font-smooth: antialiased;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body > .slider > .swiper-pagination {
@@ -67,12 +74,12 @@ body
 }
 
 .white-bottom-line::before {
-  @apply absolute bottom-0 left-1/2 h-[2px] w-[calc(100%+40px)] -translate-x-1/2 bg-white;
+  @apply absolute bottom-0 left-1/2 h-[2px] w-[calc(100%+40px)] -translate-x-1/2 rounded-lg bg-white;
   content: "";
 }
 
 .gray-bottom-line::before {
-  @apply absolute bottom-0 left-0 h-[2px] w-full bg-white/30;
+  @apply absolute bottom-0 left-0 h-[2px] w-full rounded-lg bg-white/30;
   content: "";
 }
 
